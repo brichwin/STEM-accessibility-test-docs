@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PDF/UA-2 Math Encoding Test Results</title>
+</head>
+<body style="margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:15px; color:#1a1a1a; background:#ffffff; line-height:1.6;">
+
+<div style="max-width:720px; margin:0 auto; padding:24px 16px;">
+
+  <h1 style="font-size:22px; font-weight:bold; margin:0 0 16px 0; color:#1a1a1a;">PDF/UA-2 Math Encoding Test Results</h1>
+
+  <p style="margin:0 0 12px 0; color:#444444;">Test results for PDF/UA-2 documents containing math encoded in combinations of three formats: Associated Files (AF), Structure Elements (SE), and Alt text on the formula tag. Each combination was tested in Adobe Acrobat Pro and Firefox with NVDA and JAWS screen readers.</p>
+
+  <p style="margin:0 0 6px 0; color:#444444;">Encoding formats tested:</p>
+  <ul style="margin:0 0 24px 0; padding-left:24px; color:#444444;">
+    <li style="margin-bottom:6px;"><strong>AF:</strong> MathML stored as an Associated File attached to the formula object</li>
+    <li style="margin-bottom:6px;"><strong>SE:</strong> MathML embedded directly in the PDF tag tree as Structure Elements</li>
+    <li style="margin-bottom:6px;"><strong>Alt text:</strong> Auto-generated plain text alternative on the formula tag (<code style="font-family:Courier New, monospace; font-size:13px; background:#f4f4f4; padding:1px 4px; border-radius:3px;">Alt</code> attribute) using <code style="font-family:Courier New, monospace; font-size:13px; background:#f4f4f4; padding:1px 4px; border-radius:3px;">\tagpdfsetup{math/alt/use}</code></li>
+  </ul>
+
+  <hr style="border:none; border-top:1px solid #cccccc; margin:0 0 24px 0;">
+
+  <!-- AF only -->
+  <h2 style="font-size:17px; font-weight:bold; margin:0 0 10px 0; color:#1a1a1a;">AF — Associated Files only</h2>
+  <table style="width:100%; border-collapse:collapse; margin-bottom:32px;" role="table" aria-label="Test results for AF only encoding">
+    <thead>
+      <tr>
+        <th scope="col" style="text-align:left; padding:8px 12px; background:#f0f0f0; border:1px solid #cccccc; font-size:13px; font-weight:bold; width:42%;">Screen reader + PDF viewer</th>
+        <th scope="col" style="text-align:left; padding:8px 12px; background:#f0f0f0; border:1px solid #cccccc; font-size:13px; font-weight:bold; width:58%;">Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Adobe Acrobat Pro</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#d4edda; color:#1a5c30;">Configurable math speech/braille output; interactive expression exploring</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Adobe Acrobat Pro</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Speaks raw MathML</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Firefox</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#d4edda; color:#1a5c30;">Configurable math speech/braille output; interactive expression exploring</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Firefox</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#d4edda; color:#1a5c30;">Configurable math speech/braille output; interactive expression exploring</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Chrome</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">NVDA with Edge</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">JAWS with Chrome</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Edge</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">VoiceOver macOS with Adobe Acrobat Pro</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Speaks as gibberish</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">VoiceOver macOS with Preview</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Speaks as gibberish</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">VoiceOver macOS with Chrome</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">VoiceOver macOS with Edge</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">VoiceOver macOS with Firefox</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Speaks as gibberish</td></tr>
+    </tbody>
+  </table>
+
+  <!-- SE only -->
+  <h2 style="font-size:17px; font-weight:bold; margin:0 0 10px 0; color:#1a1a1a;">SE — Structure Elements only</h2>
+  <table style="width:100%; border-collapse:collapse; margin-bottom:32px;" role="table" aria-label="Test results for SE only encoding">
+    <thead>
+      <tr>
+        <th scope="col" style="text-align:left; padding:8px 12px; background:#f0f0f0; border:1px solid #cccccc; font-size:13px; font-weight:bold; width:42%;">Screen reader + PDF viewer</th>
+        <th scope="col" style="text-align:left; padding:8px 12px; background:#f0f0f0; border:1px solid #cccccc; font-size:13px; font-weight:bold; width:58%;">Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Adobe Acrobat Pro</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#d4edda; color:#1a5c30;">Configurable math speech/braille output; interactive expression exploring</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Adobe Acrobat Pro</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math speech character by character?</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Firefox</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#d4edda; color:#1a5c30;">Configurable math speech/braille output; interactive expression exploring</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Firefox</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#d4edda; color:#1a5c30;">Configurable math speech/braille output; interactive expression exploring</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Chrome</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">NVDA with Edge</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">JAWS with Chrome</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Edge</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">VoiceOver macOS with Adobe Acrobat Pro</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Speaks as gibberish</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">VoiceOver macOS with Preview</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Speaks as gibberish</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">VoiceOver macOS with Chrome</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">VoiceOver macOS with Edge</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">VoiceOver macOS with Firefox</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Speaks as gibberish</td></tr>
+    </tbody>
+  </table>
+
+  <!-- AF + SE -->
+  <h2 style="font-size:17px; font-weight:bold; margin:0 0 10px 0; color:#1a1a1a;">AF + SE — Associated Files + Structure Elements</h2>
+  <table style="width:100%; border-collapse:collapse; margin-bottom:32px;" role="table" aria-label="Test results for AF + SE encoding">
+    <thead>
+      <tr>
+        <th scope="col" style="text-align:left; padding:8px 12px; background:#f0f0f0; border:1px solid #cccccc; font-size:13px; font-weight:bold; width:42%;">Screen reader + PDF viewer</th>
+        <th scope="col" style="text-align:left; padding:8px 12px; background:#f0f0f0; border:1px solid #cccccc; font-size:13px; font-weight:bold; width:58%;">Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Adobe Acrobat Pro</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#d4edda; color:#1a5c30;">Configurable math speech/braille output; interactive expression exploring</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Adobe Acrobat Pro</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Speaks raw MathML</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Firefox</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#d4edda; color:#1a5c30;">Configurable math speech/braille output; interactive expression exploring</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Firefox</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#d4edda; color:#1a5c30;">Configurable math speech/braille output; interactive expression exploring</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Chrome</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">NVDA with Edge</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">JAWS with Chrome</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Edge</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">VoiceOver macOS with Adobe Acrobat Pro</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Speaks as gibberish</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">VoiceOver macOS with Preview</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Speaks as gibberish</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">VoiceOver macOS with Chrome</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">VoiceOver macOS with Edge</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">VoiceOver macOS with Firefox</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Speaks as gibberish</td></tr>
+    </tbody>
+  </table>
+
+  <!-- AF + Alt Text -->
+  <h2 style="font-size:17px; font-weight:bold; margin:0 0 10px 0; color:#1a1a1a;">AF + Alt text — Associated Files + Alt text</h2>
+  <table style="width:100%; border-collapse:collapse; margin-bottom:32px;" role="table" aria-label="Test results for AF + Alt text encoding">
+    <thead>
+      <tr>
+        <th scope="col" style="text-align:left; padding:8px 12px; background:#f0f0f0; border:1px solid #cccccc; font-size:13px; font-weight:bold; width:42%;">Screen reader + PDF viewer</th>
+        <th scope="col" style="text-align:left; padding:8px 12px; background:#f0f0f0; border:1px solid #cccccc; font-size:13px; font-weight:bold; width:58%;">Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Adobe Acrobat Pro</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Alt text</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Adobe Acrobat Pro</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Alt text</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Firefox</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#d4edda; color:#1a5c30;">Configurable math speech/braille output; interactive expression exploring</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Firefox</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#d4edda; color:#1a5c30;">Configurable math speech/braille output; interactive expression exploring</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Chrome</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">NVDA with Edge</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">JAWS with Chrome</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Edge</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">VoiceOver macOS with Adobe Acrobat Pro</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Speaks as gibberish</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">VoiceOver macOS with Preview</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Speaks as gibberish</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">VoiceOver macOS with Chrome</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">VoiceOver macOS with Edge</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">VoiceOver macOS with Firefox</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Speaks as gibberish</td></tr>
+    </tbody>
+  </table>
+
+  <!-- SE + Alt Text -->
+  <h2 style="font-size:17px; font-weight:bold; margin:0 0 10px 0; color:#1a1a1a;">SE + Alt text — Structure Elements + Alt text</h2>
+  <table style="width:100%; border-collapse:collapse; margin-bottom:32px;" role="table" aria-label="Test results for SE + Alt text encoding">
+    <thead>
+      <tr>
+        <th scope="col" style="text-align:left; padding:8px 12px; background:#f0f0f0; border:1px solid #cccccc; font-size:13px; font-weight:bold; width:42%;">Screen reader + PDF viewer</th>
+        <th scope="col" style="text-align:left; padding:8px 12px; background:#f0f0f0; border:1px solid #cccccc; font-size:13px; font-weight:bold; width:58%;">Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Adobe Acrobat Pro</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Alt text</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Adobe Acrobat Pro</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Alt text</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Firefox</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#d4edda; color:#1a5c30;">Configurable math speech/braille output; interactive expression exploring</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Firefox</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#d4edda; color:#1a5c30;">Configurable math speech/braille output; interactive expression exploring</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Chrome</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">NVDA with Edge</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">JAWS with Chrome</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Edge</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">VoiceOver macOS with Adobe Acrobat Pro</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Speaks as gibberish</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">VoiceOver macOS with Preview</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Speaks as gibberish</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">VoiceOver macOS with Chrome</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">VoiceOver macOS with Edge</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">VoiceOver macOS with Firefox</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Speaks as gibberish</td></tr>
+    </tbody>
+  </table>
+
+  <!-- AF + SE + Alt Text -->
+  <h2 style="font-size:17px; font-weight:bold; margin:0 0 10px 0; color:#1a1a1a;">AF + SE + Alt text — Associated Files + Structure Elements + Alt text</h2>
+  <table style="width:100%; border-collapse:collapse; margin-bottom:32px;" role="table" aria-label="Test results for AF + SE + Alt text encoding">
+    <thead>
+      <tr>
+        <th scope="col" style="text-align:left; padding:8px 12px; background:#f0f0f0; border:1px solid #cccccc; font-size:13px; font-weight:bold; width:42%;">Screen reader + PDF viewer</th>
+        <th scope="col" style="text-align:left; padding:8px 12px; background:#f0f0f0; border:1px solid #cccccc; font-size:13px; font-weight:bold; width:58%;">Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Adobe Acrobat Pro</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Alt text</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Adobe Acrobat Pro</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Alt text</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Firefox</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#d4edda; color:#1a5c30;">Configurable math speech/braille output; interactive expression exploring</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Firefox</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#d4edda; color:#1a5c30;">Configurable math speech/braille output; interactive expression exploring</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Chrome</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">NVDA with Edge</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">JAWS with Chrome</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Edge</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">VoiceOver macOS with Adobe Acrobat Pro</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Speaks as gibberish</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">VoiceOver macOS with Preview</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Speaks as gibberish</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">VoiceOver macOS with Chrome</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">VoiceOver macOS with Edge</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Math is skipped over; not read aloud</td></tr>
+      <tr><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">VoiceOver macOS with Firefox</td><td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Speaks as gibberish</td></tr>
+    </tbody>
+  </table>
+
+</div>
+</body>
+</html>
