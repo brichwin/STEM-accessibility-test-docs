@@ -1,0 +1,364 @@
+% Accessible LaTeX Math Test Template
+% Purpose: Diagnostically rich math expressions for testing screen reader
+%          speech output. Expressions are chosen so that character-by-character
+%          reading sounds obviously wrong, making it easy for an untrained
+%          tester to identify incorrect AT behavior.
+%
+% Compiler: LuaLaTeX (required for unicode-math and PDF tagging)
+% Tested with: Rolling TeX Live (Labs), Overleaf
+%
+% -----------------------------------------------------------------------
+% \DocumentMetadata MUST come before \documentclass
+% -----------------------------------------------------------------------
+\DocumentMetadata{
+  lang=en,
+  tagging=on,
+  pdfstandard = {ua-2, A-4f},
+  tagging-setup={
+    math/setup = mathml-SE,
+    math/alt/use = true
+  }
+}
+
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{parskip} 
+
+% graphicx required for \includegraphics with alt= key
+\usepackage{graphicx}
+
+% unicode-math replaces amsmath and amssymb.
+% Must be loaded AFTER graphicx.
+\usepackage{unicode-math}
+
+\usepackage{etoolbox}
+
+\makeatletter
+\AtBeginDocument{%
+  \patchcmd{\@maketitle}
+    {\null\vskip 2em}
+    {}%
+    {}%
+    {\PackageWarningNoLine{title-spacing}
+      {Could not remove the article title top skip from \string\@maketitle}}%
+}
+\makeatother
+
+\title{Tagged PDF with MathML Test: SE+Alt}
+\author{Brian Richwine, IU}
+\date{}
+
+% -----------------------------------------------------------------------
+% Semantic macro for limits: makes the operand structurally explicit
+% in the LaTeX source and in MathML output.
+% Usage: \limitof{var}{point}{expression}
+% -----------------------------------------------------------------------
+\newcommand{\limitof}[3]{\lim_{#1 \to #2}\!\left(#3\right)}
+
+\begin{document}
+\raggedright
+
+\maketitle
+
+% -----------------------------------------------------------------------
+\section*{Template notes}
+% -----------------------------------------------------------------------
+
+\textbf{Configuration:} MathML embedded directly in the PDF tag tree as Structure Elements
+
+% -----------------------------------------------------------------------
+% PURPOSE OF THIS DOCUMENT
+% -----------------------------------------------------------------------
+
+This document contains math expressions chosen to make incorrect screen 
+reader behavior immediately obvious, even to a tester who is not familiar 
+with math accessibility, math speech grammars, etc. 
+
+For each expression, a sample expected speech output is shown alongside 
+a sample the incorrect output. The expected speech text is modeled after 
+the speech produced by the JAWS screen reader version 2026's default 
+settings when it is rendering MathML as speech text. The incorrect speech 
+text is modeled after the JAWS screen reader when it reads only the visible 
+rendered characters with no structural information from MathML. 
+
+If the screen reader output more closely matches the sample ``incorrect'' 
+speech, the math encoding is not being handled correctly somewhere in 
+the PDF viewer, OS, and assistive technology stack. 
+
+\textbf{Author's note on the sample speech text:} The sample speech texts 
+are from JAWS 2026 with the default settings. The are not provided as 
+exemplars of how the expressions should be spoken. I would not recommend 
+the default settings be used. Instead I highly recommend switching to 
+either ClearSpeak Verbose until the user has mastered depending upon speech 
+text for math access. 
+
+% -----------------------------------------------------------------------
+\section*{1. Fractions}
+% -----------------------------------------------------------------------
+
+\subsection*{1a. Simple fraction (inline)}
+
+The slope of a line is given by 
+$m = \frac{\Delta y}{\Delta x}$.
+
+\textbf{Expected speech:} ``m is equal to the fraction with numerator 
+cap delta y and denominator cap delta x end fraction MathContent'' 
+(or similar phrasing depending on screen reader)
+
+\textbf{Incorrect speech (MathML not working):} ``italics small m 
+equals delta italics small y delta italics small x''
+
+In the incorrect speech example the fraction is not announced; the 
+numerator and denominator are read as a flat sequence with nothing 
+indicating one is over the other.
+
+\subsection*{1b. Quadratic formula (display)}
+
+The solutions to $ax^2 + bx + c = 0$ are given by the quadratic formula:
+\[
+  x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\]
+
+\textbf{Expected speech:} ``x equals fraction, negative b plus or minus 
+square root, b squared minus 4 eigh c, end root over, 2 eigh, 
+end fraction MathContent''
+
+\textbf{Incorrect speech (MathML not working):} ``italics small x equals 
+minus italics small b plus or minus italics small b 2 minus 4 italics 
+small a italics small c 2 italics small a''
+
+In the incorrect speech example the fraction and the square root grouping 
+are not announced. The numerator and denominator merge into a single flat 
+string, and the radical over $b^2 - 4ac$ is not mentioned.
+
+\subsection*{1c. Nested fraction (display)}
+
+\[
+  \frac{1}{1 + \dfrac{1}{1 + \dfrac{1}{x}}}
+\]
+
+\textbf{Expected speech:} ``fraction, 1 over, 1 plus fraction, 1 over, 1 plus, 
+fraction, 1 over x, end fraction end fraction end fraction MathContent''
+
+\textbf{Incorrect speech (MathML not working):} ``1 1 plus 1 1 plus 1 italics 
+small x'' 
+
+In the incorrect speech example every fraction is not announced. All six 
+numerals and the variable collapse into a flat sequence with no indication 
+of nesting or structure whatsoever.
+
+% -----------------------------------------------------------------------
+\section*{2. Square Roots and Radicals}
+% -----------------------------------------------------------------------
+
+\subsection*{2a. Simple square root (inline)}
+
+The distance between two points is $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$.
+
+\textbf{Expected speech:} ``d equals square root, open x 2, 
+minus x 1 close squared plus, open y 2, minus y 1 close squared, 
+end root MathContent''
+
+\textbf{Incorrect speech (MathML not working):} ``italics small d equals 
+left paren italics small x 2 minus italics small x 1 right paren 
+2 plus left paren italics small y 2 minus italics small y 1 right paren 2''
+
+In the incorrect speech example the square root symbol is silent; 
+the radicand is read as if it were ordinary text following the equals sign, 
+with no indication that the entire expression is under a radical. The
+exponents are not announced as such.
+
+\subsection*{2b. Fraction under a radical (display)}
+
+\[
+  \sqrt{\frac{x + 1}{x - 1}}
+\]
+
+\textbf{Expected speech:} ``square root, fraction, x plus 1, over, 
+x minus 1, end fraction end root MathContent''
+
+\textbf{Incorrect speech (MathML not working):} ``italics small x plus 1 
+italics small x minus 1''
+
+Both the radical and the fraction bar are silent. The rendered glyphs are
+just the four terms and the two operator signs; nothing indicates they form
+a fraction nested inside a square root.
+
+\subsection*{2c. nth root (display)}
+
+\[
+  \sqrt[n]{a^n} = \lvert a \rvert \quad \text{for even } n
+\]
+
+\textbf{Expected speech:} ``n-th root eigh to the n-th, end root equals, 
+absolute value eigh, for even n MathContent''
+
+\textbf{Incorrect speech (MathML not working):} ``italics small a italics small n 
+italics small n equals vertical bar italics small a vertical bar for even italics small n''
+
+The radical index, the radical itself, and the exponent are not announced as such. 
+
+% -----------------------------------------------------------------------
+\section*{3. Exponents and Subscripts}
+% -----------------------------------------------------------------------
+
+\subsection*{3a. Nested exponents (inline)}
+
+Consider the tower $2^{2^n}$.
+
+\textbf{Expected speech:} ``2 raised to the 2 to the n-th power MathContent''
+
+\textbf{Incorrect speech (MathML not working):} ``2 2 italics small n''
+
+All three characters are read as a flat sequence. The two levels of
+exponentiation are completely invisible; a listener hearing ``2 2 italics small n'' has
+no way to recover the intended meaning.
+
+\subsection*{3b. Exponential function with compound exponent (display)}
+
+\[
+  f(x) = e^{-x^2 / 2}
+\]
+
+\textbf{Expected speech:} ``f of x equals, e raised to the negative x squared, 
+divided by 2 power MathContent''
+
+\textbf{Incorrect speech (MathML not working):} ``italics small f left paren 
+italics small x right paren italics small e minus italics small x 2 slash 2''
+
+The function speech for $f(x)$, the exponent structure, and
+the fraction in the exponent are not announced as such. The rendered child
+characters---f, x, e, x, 2, 2---are read as a meaningless flat string.
+
+\subsection*{3c. Subscripts and superscripts together (display)}
+
+\[
+  \sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6}
+\]
+
+\textbf{Expected speech:} ``sum from i equals 1 to n of, i squared equals fraction, 
+n times, open n plus 1 close, times, open 2 n plus 1, close, over 6, end fraction  
+MathContent''
+
+\textbf{Incorrect speech (MathML not working):} ``sigma italics small i 1 italics 
+small n italics small i 2 equals italics small n left paren italics small n plus 
+1 right paren left paren 2 n plus 1 right paren 6''
+
+The summation's lower limit ($i=1$), upper limit ($n$),
+and summand ($i^2$) merge with the right-hand side into an undifferentiated
+run of characters. The fraction bar on the right-hand side is also silent.
+
+% -----------------------------------------------------------------------
+\section*{4. Limits and Integrals}
+% -----------------------------------------------------------------------
+
+\subsection*{4a. Limit with explicit operand (display)}
+
+\[
+  \limitof{x}{0}{\frac{\sin x}{x}} = 1
+\]
+
+\textbf{Expected speech:} ``limit as x approaches 0 open, fraction, sine x, 
+over x, end fraction close equals 1 MathContent''
+
+\textbf{Incorrect speech (MathML not working):} ``lim italics small x 
+rightwards arrow 0 left paren sin right paren italics small x 
+italics small x 1''
+
+The arrow ($\to$) may be spoken as a symbol name or silently
+dropped. The fraction ``$\sin x$ over $x$'' collapses to ``sin x x'' with
+no indication that the sine expression is in the numerator and $x$ alone
+is the denominator.
+
+\subsection*{4b. Definite integral (display)}
+
+\[
+  \int_{0}^{1} x^2 \, dx = \frac{1}{3}
+\]
+
+\textbf{Expected speech:} ``integral from 0 to 1 of, x squared d x equals 1 third  
+MathContent''
+
+\textbf{Incorrect speech (MathML not working):} ``integral blank 0 1 italics small x 
+2 italics small d italics small x 1 3''
+
+The limits of integration (0 and 1) are
+read as bare numbers with no indication they are bounds. The fraction
+``$\frac{1}{3}$'' collapses to ``1 3'' with no spoken relationship between
+the two digits.
+
+% -----------------------------------------------------------------------
+\section*{5. Matrix}
+% -----------------------------------------------------------------------
+
+\subsection*{5a. 2 × 2 matrix with non-trivial entries (display)}
+
+\[
+  A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}
+\]
+
+\textbf{Expected speech:} ``cap eigh equals the 2 by 2 matrix row 1 eigh, b row 2 c, d  
+MathContent'' (exact phrasing varies by screen reader and math speech
+engine).
+
+\textbf{Incorrect speech (MathML not working):} ``italics capital A equals left paren italics small a italics small b italics small c italics small d right paren''.
+The matrix delimiters and the row/column structure are entirely absent.
+The four entries are read as a flat list with no indication they form a
+rectangular array, let alone that $a$ and $b$ are in the same row while
+$c$ and $d$ are in another.
+
+\subsection*{5b. Matrix equation showing determinant (display)}
+
+\[
+  \det(A) = \begin{vmatrix} a & b \\ c & d \end{vmatrix} = ad - bc
+\]
+
+\textbf{Expected speech:} ``det of cap eigh, equals, the 2 by 2 determinant; 
+row 1; eigh, b; row 2; c, d; equals, eigh d minus b c MathContent''
+
+\textbf{Incorrect speech (MathML not working):} ``det left paren italics capital A right paren equals vertical bar italics small a italics small b italics small c italics small d vertical bar equals italics small a italics small d minus italics small b italics small c''
+
+The vertical bars are silent. The entries are read as a flat continuation
+of the surrounding expression, indistinguishable from the ``$ad - bc$''
+that follows. A tester hearing ``a b c d a d b c'' cannot tell where the
+matrix ends and the scalar expression begins.
+
+% -----------------------------------------------------------------------
+\section*{6. Combined Structure}
+% -----------------------------------------------------------------------
+
+\subsection*{6a. Euler's identity (display)}
+
+\[
+  e^{i\pi} + 1 = 0
+\]
+
+\textbf{Expected speech:} ``e raised to the i pi power plus 1 
+equals 0 MathContent''
+
+\textbf{Incorrect speech (MathML not working):} ``italics small e 
+italics small i italics small pi plus 1 equals 0''
+
+The exponent structure is silent; $i\pi$ is read as if it were at the
+same level as the $+\,1$ that follows rather than as the exponent of $e$.
+
+\subsection*{6b. Normal distribution probability density (display)}
+
+\[
+  f(x) = \frac{1}{\sigma\sqrt{2\pi}}\, e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+\]
+
+\textbf{Expected speech:} ``f of x equals fraction, 1 over, sigma times, 
+square root, 2 pi, end root end fraction times e raised to the negative fraction, 
+open x minus mu close squared, over, 2 sigma squared, end fraction power  
+MathContent''
+
+\textbf{Incorrect speech (MathML not working):} ``italics small f left paren 
+italics small x right paren equals 1 italics small sigma 2 italics small pi 
+italics small e minus left paren x minus italics small mu right paren 2 2 
+italics small sigma 2''
+
+Every structural element is silent: the outer fraction bar, the radical,
+the exponent grouping, and the inner fraction in the exponent all collapse.
+
+\end{document}
