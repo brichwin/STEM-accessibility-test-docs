@@ -9,7 +9,7 @@ This file tests **AF + SE**: MathML is both embedded as an Associated File and w
 | File | Description |
 |---|---|
 | `main.tex` | LaTeX source |
-| `main.pdf` | Compiled PDF output |
+| `pdfua2-mathml-af-se.pdf` | Compiled PDF output |
 | `latexmkrc` | Overleaf compilation configuration (shared across all six projects) |
 
 ## `\DocumentMetadata` configuration

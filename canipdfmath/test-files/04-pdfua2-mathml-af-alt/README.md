@@ -9,7 +9,7 @@ This file tests **AF + Alt text**: MathML is embedded as an Associated File, and
 | File | Description |
 |---|---|
 | `main.tex` | LaTeX source |
-| `main.pdf` | Compiled PDF output |
+| `pdfua2-mathml-af-alt.pdf` | Compiled PDF output |
 | `latexmkrc` | Overleaf compilation configuration (shared across all six projects) |
 
 ## `\DocumentMetadata` configuration

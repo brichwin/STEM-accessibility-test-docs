@@ -9,7 +9,7 @@ This file tests **SE + Alt text**: MathML is written into the PDF tag tree as St
 | File | Description |
 |---|---|
 | `main.tex` | LaTeX source |
-| `main.pdf` | Compiled PDF output |
+| `pdfua2-mathml-se-alt.pdf` | Compiled PDF output |
 | `latexmkrc` | Overleaf compilation configuration (shared across all six projects) |
 
 ## `\DocumentMetadata` configuration

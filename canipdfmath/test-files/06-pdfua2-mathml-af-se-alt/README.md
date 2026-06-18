@@ -9,7 +9,7 @@ This file tests **AF + SE + Alt text**: all three encoding methods are active si
 | File | Description |
 |---|---|
 | `main.tex` | LaTeX source |
-| `main.pdf` | Compiled PDF output |
+| `pdfua2-mathml-af-se-alt.pdf` | Compiled PDF output |
 | `latexmkrc` | Overleaf compilation configuration (shared across all six projects) |
 
 ## `\DocumentMetadata` configuration

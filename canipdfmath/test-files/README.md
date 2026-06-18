@@ -28,10 +28,10 @@ $lualatex='lualatex-dev -synctex=1 -interaction=nonstopmode';
 
 **What each line does:**
 
-- **`$max_repeat = 1`** — Tells `latexmk` to run the compiler only once rather than repeatedly until the output stabilizes. PDF tagging with the current LaTeX tagging project can produce false "rerun needed" signals; limiting to one pass avoids runaway compile loops on Overleaf.
-- **`$force_mode = 1`** — Instructs `latexmk` to continue even if it encounters errors, equivalent to running in non-stop mode at the `latexmk` level. Combined with `-interaction=nonstopmode` on the engine itself, this ensures Overleaf produces a PDF rather than hanging on a non-fatal warning.
-- **`$pdflatex='pdflatex-dev ...'`** — Overrides the PDFLaTeX engine with `pdflatex-dev`, the development/prerelease build that includes the latest LaTeX kernel changes. The `-synctex=1` flag enables source-to-PDF sync in the Overleaf editor; `-interaction=nonstopmode` suppresses interactive prompts.
-- **`$lualatex='lualatex-dev ...'`** — Same override for LuaLaTeX. Since these projects use LuaLaTeX (required for MathML Structure Element tagging), this is the active rule. `lualatex-dev` carries the same prerelease kernel as `pdflatex-dev` and is recommended by the LaTeX Tagging Project for the most current MathML support.
+- **`$max_repeat = 1`**: Tells `latexmk` to run the compiler only once rather than repeatedly until the output stabilizes. PDF tagging with the current LaTeX tagging project can produce false "rerun needed" signals; limiting to one pass avoids runaway compile loops on Overleaf.
+- **`$force_mode = 1`**: Instructs `latexmk` to continue even if it encounters errors, equivalent to running in non-stop mode at the `latexmk` level. Combined with `-interaction=nonstopmode` on the engine itself, this ensures Overleaf produces a PDF rather than hanging on a non-fatal warning.
+- **`$pdflatex='pdflatex-dev ...'`**: Overrides the PDFLaTeX engine with `pdflatex-dev`, the development/prerelease build that includes the latest LaTeX kernel changes. The `-synctex=1` flag enables source-to-PDF sync in the Overleaf editor; `-interaction=nonstopmode` suppresses interactive prompts.
+- **`$lualatex='lualatex-dev ...'`**: Same override for LuaLaTeX. Since these projects use LuaLaTeX (required for MathML Structure Element tagging), this is the active rule. `lualatex-dev` carries the same prerelease kernel as `pdflatex-dev` and is recommended by the LaTeX Tagging Project for the most current MathML support.
 
 > **Why `-dev` variants?** The `-dev` engines (`lualatex-dev`, `pdflatex-dev`) ship the development version of the LaTeX kernel (`latex-dev` package). When using Rolling TeX Live on Overleaf, this ensures you are running the absolute latest tagging code rather than the stable kernel bundled with that TeX Live snapshot.
 
@@ -41,15 +41,15 @@ $lualatex='lualatex-dev -synctex=1 -interaction=nonstopmode';
 
 All six files declare `pdfstandard = {ua-2, A-4f}`. Here is what each means and why both are declared.
 
-### `ua-2` — PDF/UA-2 (ISO 14289-2)
+### `ua-2`: PDF/UA-2 (ISO 14289-2)
 
 PDF/UA-2 is the current Universal Accessibility standard for PDFs. It is built on PDF 2.0 and provides native support for MathML as a first-class structure type. It is the standard most directly relevant to math accessibility and is what screen reader / PDF viewer combinations must support to render MathML correctly.
 
-### `A-4f` — PDF/A-4f (ISO 19005-4, level f)
+### `A-4f`: PDF/A-4f (ISO 19005-4, level f)
 
-PDF/A is the archiving standard. The `-4` generation aligns with PDF 2.0 (the same base as PDF/UA-2). The `f` conformance level (for "files") permits embedded files — which is what makes the Associated File (AF) encoding method possible. Without `A-4f`, embedding a MathML file as an Associated File attached to the formula object would not be standards-conforming.
+PDF/A is the archiving standard. The `-4` generation aligns with PDF 2.0 (the same base as PDF/UA-2). The `f` conformance level (for "files") permits embedded files which is what makes the Associated File (AF) encoding method possible. Without `A-4f`, embedding a MathML file as an Associated File attached to the formula object would not be standards-conforming.
 
-`A-4f` is strictly required only for the files that use AF encoding. It is declared in all six files for consistency; its presence in SE-only files is redundant but harmless — the PDF simply claims conformance to a standard that permits embedded files, whether or not any are present.
+`A-4f` is strictly required only for the files that use AF encoding. It is declared in all six files for consistency; its presence in SE-only files is unnecessary and harmless. The PDF simply claims conformance to a standard that permits embedded files, whether or not any are present.
 
 ### Why `pdfversion=2` does not need to be set explicitly
 
@@ -59,7 +59,7 @@ When `pdfstandard=ua-2` (or `A-4f`) is declared, `\DocumentMetadata` automatical
 
 ## Language: `lang=en`
 
-All six files use `lang=en` rather than `lang=en-US`. This is deliberate. `lang=en` is a valid BCP 47 tag meaning "English, no regional variant." When a screen reader or MathCAT encounters it, they fall back to the user's own configured locale for region-specific conventions — so an `en-GB` user hears math spoken with British English conventions (e.g. "bracket" for parenthesis) and an `en-US` user hears American English conventions. Setting `lang=en-US` would override that and impose American conventions on all users regardless of their locale. `lang=en` is therefore the correct choice for a document intended for a broad English-speaking audience.
+All six files use `lang=en` rather than `lang=en-US`. This is deliberate. `lang=en` is a valid BCP 47 tag meaning "English, no regional variant." When a screen reader encounters it, they fall back to the user's own configured locale for region-specific conventions if the base language is the same. So an `en-GB` user hears math spoken with British English conventions (e.g. "bracket" for parenthesis) and an `en-US` user hears American English conventions (e.g. "parenthesis" for parenthesis). Setting `lang=en-US` would override that and impose American conventions on all users regardless of their locale. `lang=en` is therefore the correct choice for a document intended for a broad English-speaking audience.
 
 ---
 

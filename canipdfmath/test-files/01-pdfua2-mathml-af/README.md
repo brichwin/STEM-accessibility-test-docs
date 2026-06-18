@@ -1,4 +1,4 @@
-# pdfua2-mathml-af — Associated Files only
+# pdfua2-mathml-af: Associated Files only
 
 **Overleaf project:** [pdfua2-mathml-af](https://www.overleaf.com/read/mqkqqkppggnh#972502) (read-only)
 
@@ -9,7 +9,7 @@ This file tests **AF only**: MathML embedded as an Associated File attached to t
 | File | Description |
 |---|---|
 | `main.tex` | LaTeX source |
-| `main.pdf` | Compiled PDF output |
+| `pdfua2-mathml-af.pdf` | Compiled PDF output |
 | `latexmkrc` | Overleaf compilation configuration (shared across all six projects) |
 
 ## `\DocumentMetadata` configuration
@@ -27,23 +27,10 @@ This file tests **AF only**: MathML embedded as an Associated File attached to t
 
 **Key choices:**
 
-- **`pdfstandard = {ua-2, A-4f}`** — `A-4f` is required here because the AF method embeds MathML as a file attachment on each formula object. See the [top-level README](../README.md#pdf-standards-pdfstandardua-2-and-pdfstandardA-4f) for a full explanation.
-- **`math/setup = mathml-AF`** — Instructs the LaTeX tagging engine to generate MathML and attach it as an Associated File to each formula tag rather than writing it into the PDF structure tree. The generated `.xml` MathML files are available in Overleaf's "Other logs and files" panel after compilation.
-- **No `math/alt/use`** — No Alt text is generated on the formula tag.
-- **`lang=en`** — See the [top-level README](../README.md#language-langen) for the reasoning behind using `en` rather than `en-US`.
-
-## Test results summary
-
-| Screen reader + PDF viewer | Result |
-|---|---|
-| NVDA with Adobe Acrobat Pro | ✅ Configurable math speech/braille; interactive expression exploring |
-| JAWS with Adobe Acrobat Pro | ❌ Speaks raw MathML |
-| NVDA with Firefox | ✅ Configurable math speech/braille; interactive expression exploring |
-| JAWS with Firefox | ✅ Configurable math speech/braille; interactive expression exploring |
-| NVDA or JAWS with Chrome/Edge | ❌ Math is skipped over; not read aloud |
-| VoiceOver macOS (all viewers) | ❌ Speaks as gibberish / math skipped |
-
-See the [full results table](../../index.html) for complete detail and test dates.
+- **`pdfstandard = {ua-2, A-4f}`**: `A-4f` is required here because the AF method embeds MathML as a file attachment on each formula object. See the [top-level README](../README.md#pdf-standards-pdfstandardua-2-and-pdfstandardA-4f) for a full explanation.
+- **`math/setup = mathml-AF`**: Instructs the LaTeX tagging engine to generate MathML and attach it as an Associated File to each formula tag rather than writing it into the PDF structure tree. The generated `.xml` MathML files are available in Overleaf's "Other logs and files" panel after compilation.
+- **No `math/alt/use`**: No Alt text is generated on the formula tag.
+- **`lang=en`**: See the [top-level README](../README.md#language-langen) for the reasoning behind using `en` rather than `en-US`.
 
 ## Notes
 
