@@ -1,6 +1,6 @@
 # PDF/UA-2 MathML Encoding Test Files
 
-This directory contains the six LaTeX source files, compiled PDFs, and documentation used to generate the [PDF/UA-2 Math Encoding Test Results](../index.html). Each subdirectory corresponds to one encoding combination tested.
+This directory contains the six LaTeX source files, compiled PDFs, and documentation used to generate the [PDF/UA-2 Math Encoding Test Results](https://brichwin.github.io/STEM-accessibility-test-docs/canipdfmath/). Each subdirectory corresponds to one encoding combination tested.
 
 ## Compilation environment
 
@@ -19,7 +19,7 @@ All six projects were compiled on Overleaf using the following settings:
 
 All six projects share the same `latexmkrc` file:
 
-```perl
+```bash
 $max_repeat = 1;
 $force_mode = 1;
 $pdflatex='pdflatex-dev -synctex=1 -interaction=nonstopmode';
