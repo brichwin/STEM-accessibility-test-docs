@@ -13,7 +13,9 @@ All six projects were compiled on Overleaf using the following settings:
 | Compile mode | Normal |
 | Stop on first error | On |
 
-**Overleaf Labs** must be enabled to access the Rolling TeX Live version. The rolling image provides the latest LaTeX tagging project fixes ahead of the annual TeX Live release, which is important for MathML tagging support.
+[**Overleaf Labs**](https://www.overleaf.com/labs/participate) must be enabled to access the Rolling TeX Live version. The rolling image provides the latest LaTeX tagging project fixes ahead of the annual TeX Live release, which is important for MathML tagging support.
+See [Creating accessible PDFs in LaTeX - docs.overleaf.com](https://docs.overleaf.com/writing-and-editing/creating-accessible-pdfs) for 
+more information.
 
 ### The `latexmkrc` file
 
@@ -34,6 +36,9 @@ $lualatex='lualatex-dev -synctex=1 -interaction=nonstopmode';
 - **`$lualatex='lualatex-dev ...'`**: Same override for LuaLaTeX. Since these projects use LuaLaTeX (required for MathML Structure Element tagging), this is the active rule. `lualatex-dev` carries the same prerelease kernel as `pdflatex-dev` and is recommended by the LaTeX Tagging Project for the most current MathML support.
 
 > **Why `-dev` variants?** The `-dev` engines (`lualatex-dev`, `pdflatex-dev`) ship the development version of the LaTeX kernel (`latex-dev` package). When using Rolling TeX Live on Overleaf, this ensures you are running the absolute latest tagging code rather than the stable kernel bundled with that TeX Live snapshot.
+
+The latexmkrc file and its contents were recommended for use with Overleaf by the LaTeX Tagging Project on their 
+[Using LaTeX to produce accessible PDF](https://latex3.github.io/tagging-project/documentation/usage-instructions) page.
 
 ---
 
