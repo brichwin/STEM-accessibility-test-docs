@@ -67,12 +67,12 @@ All six files use `lang=en` rather than `lang=en-US`. This is deliberate. `lang=
 
 | # | Folder | Encoding | `math/setup` | `math/alt/use` | Overleaf project |
 |---|---|---|---|---|---|
-| 1 | `01-pdfua2-mathml-af` | AF only | `mathml-AF` | — | [pdfua2-mathml-af](https://www.overleaf.com/read/mqkqqkppggnh#972502) |
-| 2 | `02-pdfua2-mathml-se` | SE only | `mathml-SE` | — | [pdfua2-mathml-se](https://www.overleaf.com/read/zghsqhpyybgd#0e4fdf) |
-| 3 | `03-pdfua2-mathml-af-se` | AF + SE | `{mathml-AF, mathml-SE}` | — | [pdfua2-mathml-af-se](https://www.overleaf.com/read/yhsxdnfvfchj#b6fb41) |
-| 4 | `04-pdfua2-mathml-af-alt` | AF + Alt text | `mathml-AF` | `true` | [pdfua2-mathml-af-alt](https://www.overleaf.com/read/trfqnkgwvxqv#8e07e6) |
-| 5 | `05-pdfua2-mathml-se-alt` | SE + Alt text | `mathml-SE` | `true` | [pdfua2-mathml-se-alt](https://www.overleaf.com/read/fbjvjmzppdyj#618976) |
-| 6 | `06-pdfua2-mathml-af-se-alt` | AF + SE + Alt text | `{mathml-AF, mathml-SE}` | `true` | [pdfua2-mathml-af-se-alt](https://www.overleaf.com/read/pwdzngyftwwk#9871d1) |
+| 1 | [`01-pdfua2-mathml-af`](./01-pdfua2-mathml-af) | AF only | `mathml-AF` | — | [pdfua2-mathml-af](https://www.overleaf.com/read/mqkqqkppggnh#972502) |
+| 2 | [`02-pdfua2-mathml-se`](./02-pdfua2-mathml-se) | SE only | `mathml-SE` | — | [pdfua2-mathml-se](https://www.overleaf.com/read/zghsqhpyybgd#0e4fdf) |
+| 3 | [`03-pdfua2-mathml-af-se`](./03-pdfua2-mathml-af-se) | AF + SE | `{mathml-AF, mathml-SE}` | — | [pdfua2-mathml-af-se](https://www.overleaf.com/read/yhsxdnfvfchj#b6fb41) |
+| 4 | [`04-pdfua2-mathml-af-alt`](./04-pdfua2-mathml-af-alt) | AF + Alt text | `mathml-AF` | `true` | [pdfua2-mathml-af-alt](https://www.overleaf.com/read/trfqnkgwvxqv#8e07e6) |
+| 5 | [`05-pdfua2-mathml-se-alt`](./05-pdfua2-mathml-se-alt) | SE + Alt text | `mathml-SE` | `true` | [pdfua2-mathml-se-alt](https://www.overleaf.com/read/fbjvjmzppdyj#618976) |
+| 6 | [`06-pdfua2-mathml-af-se-alt`](./06-pdfua2-mathml-af-se-alt) | AF + SE + Alt text | `{mathml-AF, mathml-SE}` | `true` | [pdfua2-mathml-af-se-alt](https://www.overleaf.com/read/pwdzngyftwwk#9871d1) |
 
 ---
 
