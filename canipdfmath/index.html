@@ -32,6 +32,7 @@
       </li>
     </ul>
 
+<<<<<<< HEAD
     <!-- Summary table -->
 <h2 style="font-size:18px; font-weight:bold; margin:0 0 12px 0; color:#1a1a1a;">Summary of selected results</h2>
     
@@ -176,12 +177,17 @@
   </tbody>
 </table>
         
+=======
+
+>>>>>>> f6f9d4d (Update failure descriptions)
     <!-- Obtaining the test files -->
     <h2 style="font-size:18px; font-weight:bold; margin:0 0 12px 0; color:#1a1a1a;">Test file details</h2>
 
-    <p style="margin:0 0 12px 0; color:#444444;">The six test files are available at <a href="https://brichwin.github.io/STEM-accessibility-test-docs/canipdfmath/test-files/">PDF/UA-2 MathML Encoding Test Files</a>.
-    There you can find details on LaTeX source files, compiled PDFs, and documentation of how they were
-    built in Overleaf.</p>
+    <p style="margin:0 0 12px 0; color:#444444;">The six test files are available at <a
+        href="https://brichwin.github.io/STEM-accessibility-test-docs/canipdfmath/test-files/">PDF/UA-2 MathML Encoding
+        Test Files</a>.
+      There you can find details on LaTeX source files, compiled PDFs, and documentation of how they were
+      built in Overleaf.</p>
 
     <!-- Understanding the results -->
     <h2 style="font-size:18px; font-weight:bold; margin:0 0 12px 0; color:#1a1a1a;">Understanding the results</h2>
@@ -189,12 +195,14 @@
     <p style="margin:0 0 12px 0; color:#444444;">The goal of accessible math in a PDF is not simply to have something
       read aloud. It is to give screen reader users the same depth of access that sighted readers get when they look at
       a formula. That means being able to hear math spoken in natural, accurate, and unambiguous mathematical language;
-      navigate into an expression interactively; and optionally receive braille output on a refreshable braille display.</p>
+      navigate into an expression interactively; and optionally receive braille output on a refreshable braille display.
+    </p>
 
     <p style="margin:0 0 12px 0; color:#444444;">This is what <strong>Configurable math speech/braille output;
         interactive expression exploring</strong> means in the results below. It is the only outcome marked as passing
       (green) because it is the only outcome where the MathML in the PDF is being processed by a dedicated math
-      accessibility engine (like MathCAT, which is now built natively into both NVDA and JAWS) rather than being ignored, 
+      accessibility engine (like MathCAT, which is now built natively into both NVDA and JAWS) rather than being
+      ignored,
       mangled, or substituted with an inferior plain text fallback.</p>
 
     <p style="margin:0 0 8px 0; color:#444444;">The other outcomes represent meaningful failures:</p>
@@ -204,19 +212,49 @@
         there is no interactivity, no braille output, and no way to navigate the expression. For
         simple inline values this may be tolerable, but for complex expressions it is a significant loss of information
         and control.</li>
-      <li style="margin-bottom:8px;"><strong>Speaks raw MathML</strong>: the screen reader reads the underlying XML
-        markup aloud verbatim, which is unintelligible to listeners and unusable in practice.</li>
+      <li style="margin-bottom:8px;"><strong>Speaks literal text only, no structure</strong>: he screen reader reads the
+        text nodes inside the MathML (numbers, letters, operators) in DOM order, but applies no semantic interpretation.
+        Structural relationships such as fractions, exponents, roots, and matrices are lost entirely; the output is a
+        flat
+        run of values with no indication of how they relate to one another.</li>
+      <li style="margin-bottom:8px;"><strong>Math speech character by character</strong>: the reader encounters the
+        MathML tag tree as individual characters rather than as a parsed mathematical expression, producing output that
+        is technically present but semantically meaningless.</li>
       <li style="margin-bottom:8px;"><strong>Math speech character by character</strong>: the reader encounters the
         MathML tag tree as individual characters rather than as a parsed mathematical expression, producing output that
         is technically present but semantically meaningless.</li>
       <li style="margin-bottom:8px;"><strong>Math is skipped over; not read aloud</strong>: the formula is silently
         passed over with no output whatsoever. The reader has no indication that math was present.</li>
-      <li style="margin-bottom:8px;"><strong>Speaks as gibberish</strong>: the reader produces output, but it does not
-        correspond to the mathematical content in any meaningful way.</li>
+      <li style="margin-bottom:8px;">
+        <p><strong>Speaks broken/misleading math</strong>: the screen reader attempts a
+          semantic reading of the expression but produces output that is structurally garbled or factually incorrect: operands
+          rendered as "null," relationships mislabeled (e.g. a fraction spoken as "choose" rather than "over"), silently
+          skips over some symbols, Greek letters, fancy-font characters, or produces other distortions that misrepresent
+          the actual mathematical content.</p>
+        <p>This is a more serious failure than silence, since a listener may have no way
+          to know the output is wrong without independently verifying the expression.</p>
+        <p>
+          Here is an example of VoiceOver producing erroneous output when voicing the quadratic formula from MathML
+          encoded as Structured Elements:</p>
+        <div>
+          <img style="width: 98%" src="voiceOverGibberishForMath.png" alt="VoiceOver caption misreading the quadratic formula. 
+          Details in the following long description.">
+        </div>
+        <div>
+          <details>
+            <summary>Expand for long descripton</summary>
+            <p>Screenshot comparing a quadratic formula equation rendered in a PDF with
+              VoiceOver's spoken caption overlay. MathCAT in NVDA would speak the visible equation as "x is equal to;
+              the fraction with numerator;
+              negative b plus or minus; the square root of b squared minus 4 eigh c, end root; and denominator 2 eigh;
+              end fraction". </p>
+            <p>VoiceOver's caption instead reads "x equals negative b plus or minus square root of (null), end of
+              root choose 2a, with 3 items, math". The radicand is replaced with "null" and the fraction is mislabeled
+              as "choose."</p>
+          </details>
+        </div>
+      </li>
     </ul>
-
-
-
 
     <!-- AF only -->
     <h2 style="font-size:17px; font-weight:bold; margin:0 0 10px 0; color:#1a1a1a;">AF: Associated Files only</h2>
@@ -236,7 +274,7 @@
         </tr>
       </thead>
       <tbody>
-        
+
         <tr>
           <td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Adobe
             Acrobat Pro</td>
@@ -270,7 +308,8 @@
           <td
             style="padding:7px 12px; border:1px solid #cccccc; font-size:13px; background:#f9f9f9; white-space:nowrap;">
             2026-06-17 <a href="#footnote-2" aria-label="Footnote 2"><sup>2</sup></a></td>
-        </tr><tr>
+        </tr>
+        <tr>
           <td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Adobe Acrobat Pro</td>
           <td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#d4edda; color:#1a5c30;">
             Configurable math speech/braille output; interactive expression exploring</td>
@@ -361,7 +400,7 @@
         </tr>
       </thead>
       <tbody>
-        
+
         <tr>
           <td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Adobe
             Acrobat Pro</td>
@@ -395,7 +434,8 @@
           <td
             style="padding:7px 12px; border:1px solid #cccccc; font-size:13px; background:#f9f9f9; white-space:nowrap;">
             2026-06-17 <a href="#footnote-2" aria-label="Footnote 2"><sup>2</sup></a></td>
-        </tr><tr>
+        </tr>
+        <tr>
           <td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Adobe Acrobat Pro</td>
           <td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#d4edda; color:#1a5c30;">
             Configurable math speech/braille output; interactive expression exploring</td>
@@ -452,7 +492,7 @@
         <tr>
           <td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">VoiceOver macOS with Firefox</td>
           <td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">
-            Speaks as gibberish</td>
+            Speaks broken/misleading math</td>
           <td style="padding:7px 12px; border:1px solid #cccccc; font-size:13px; white-space:nowrap;">2026-06-16 <a
               href="#footnote-3" aria-label="Footnote 3"><sup>3</sup></a></td>
         </tr>
@@ -460,7 +500,7 @@
           <td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">VoiceOver macOS
             with Preview</td>
           <td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">
-            Speaks as gibberish</td>
+            Speaks literal text only, no structure/td>
           <td
             style="padding:7px 12px; border:1px solid #cccccc; font-size:13px; background:#f9f9f9; white-space:nowrap;">
             2026-06-16 <a href="#footnote-3" aria-label="Footnote 3"><sup>3</sup></a></td>
@@ -487,7 +527,7 @@
         </tr>
       </thead>
       <tbody>
-        
+
         <tr>
           <td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Adobe
             Acrobat Pro</td>
@@ -521,7 +561,8 @@
           <td
             style="padding:7px 12px; border:1px solid #cccccc; font-size:13px; background:#f9f9f9; white-space:nowrap;">
             2026-06-17 <a href="#footnote-2" aria-label="Footnote 2"><sup>2</sup></a></td>
-        </tr><tr>
+        </tr>
+        <tr>
           <td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Adobe Acrobat Pro</td>
           <td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#d4edda; color:#1a5c30;">
             Configurable math speech/braille output; interactive expression exploring</td>
@@ -613,7 +654,7 @@
         </tr>
       </thead>
       <tbody>
-        
+
         <tr>
           <td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Adobe
             Acrobat Pro</td>
@@ -647,7 +688,8 @@
           <td
             style="padding:7px 12px; border:1px solid #cccccc; font-size:13px; background:#f9f9f9; white-space:nowrap;">
             2026-06-17 <a href="#footnote-2" aria-label="Footnote 2"><sup>2</sup></a></td>
-        </tr><tr>
+        </tr>
+        <tr>
           <td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Adobe Acrobat Pro</td>
           <td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Alt
             text</td>
@@ -739,7 +781,7 @@
         </tr>
       </thead>
       <tbody>
-        
+
         <tr>
           <td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Adobe
             Acrobat Pro</td>
@@ -773,7 +815,8 @@
           <td
             style="padding:7px 12px; border:1px solid #cccccc; font-size:13px; background:#f9f9f9; white-space:nowrap;">
             2026-06-17 <a href="#footnote-2" aria-label="Footnote 2"><sup>2</sup></a></td>
-        </tr><tr>
+        </tr>
+        <tr>
           <td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Adobe Acrobat Pro</td>
           <td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Alt
             text</td>
@@ -865,7 +908,7 @@
         </tr>
       </thead>
       <tbody>
-        
+
         <tr>
           <td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f9f9f9;">JAWS with Adobe
             Acrobat Pro</td>
@@ -899,7 +942,8 @@
           <td
             style="padding:7px 12px; border:1px solid #cccccc; font-size:13px; background:#f9f9f9; white-space:nowrap;">
             2026-06-17 <a href="#footnote-2" aria-label="Footnote 2"><sup>2</sup></a></td>
-        </tr><tr>
+        </tr>
+        <tr>
           <td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px;">NVDA with Adobe Acrobat Pro</td>
           <td style="padding:7px 12px; border:1px solid #cccccc; font-size:14px; background:#f8d7da; color:#6b1520;">Alt
             text</td>
@@ -982,8 +1026,8 @@
       is built natively into JAWS; no add-on required. Default JAWS settings. Microsoft Windows 11 Enterprise Version
       10.0.26100 Build 26100. Results confirmed by users on various other Windows 11 configurations.</p>
     <p style="margin:0 0 0 0; font-size:14px; color:#444444;" id="footnote-3"><sup>3</sup> <strong>VoiceOver macOS
-        testing: 2026-06-16.</strong> VoiceOver on macOS Tahoe 26.5.1. VoiceOver does not appear to support true 
-        access to MathML in PDFs.</p>
+        testing: 2026-06-16.</strong> VoiceOver on macOS Tahoe 26.5.1. VoiceOver does not appear to support true
+      access to MathML in PDFs.</p>
 
   </div>
 </body>
